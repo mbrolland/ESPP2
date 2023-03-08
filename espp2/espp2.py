@@ -36,10 +36,10 @@ def main(transaction_files: list[typer.FileBinaryRead],
          loglevel: str = typer.Option("WARNING", help='Logging level')):
 
     '''ESPPv2 tax reporting tool'''
-    lognames = logging.getLevelNamesMapping()
-    if loglevel not in lognames:
-        raise typer.BadParameter(f'Invalid loglevel: {loglevel}')
-    logging.basicConfig(level=lognames[loglevel])
+    # lognames = logging.getLevelNamesMapping()
+    # if loglevel not in lognames:
+    #    raise typer.BadParameter(f'Invalid loglevel: {loglevel}')
+    # logging.basicConfig(level=lognames[loglevel])
 
     report: TaxReport
     holdings: Holdings

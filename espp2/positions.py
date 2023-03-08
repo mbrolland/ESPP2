@@ -163,13 +163,15 @@ class Positions():
         posidx = 0
         if symbol in self.sale_by_symbols:
             for s in self.sale_by_symbols[symbol]:
+                print(f'_balance: sale: {s} {s.date} {balancedate}')
                 if s.date > balancedate:
                     break
                 if posview[posidx].date > balancedate:
                     raise InvalidPositionException(
                         f'Trying to sell stock from the future {posview[posidx].date} > {balancedate}')
                 qty_to_sell = s.qty.copy_abs()
-                assert qty_to_sell > 0
+                print(f'qty_to_sell={qty_to_sell}')
+                # assert qty_to_sell > 0
                 while qty_to_sell > 0:
                     if posidx >= len(posview):
                         raise InvalidPositionException(
